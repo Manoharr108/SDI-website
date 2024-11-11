@@ -1,31 +1,141 @@
-.bg_image_home{
-    background-image: url('back.png');
-    background-size: cover;
-    height: 100vh;
-  }
-.bg_image_contact{
-    background-image: url('contact.png');
-    background-size: cover;
-    height: 100vh;
-  }
-  .bg_image_about{
-    background-image: url('contact.png');
-    background-size: cover;
-    height: 100vh;
-  }
-  .bg_image_register{
-    background-image: url('register.png');
-    background-size: cover;
-    height: 100vh;
-  }
-  .bg_image_team{
-    background-image: url('contact.png');
-    background-size: cover;
-    height: 100vh;
-  }
-  .bg_image_events{
-    background-image: url('contact.png');
-    background-size: cover;
-    height: 100vh;
-  }
+/* Base Styles for Background Images */
+[class^="bg_image_"] {
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Page-specific Backgrounds */
+.bg_image_home { background-image: url('back.png'); }
+.bg_image_contact,
+.bg_image_about,
+.bg_image_team,
+.bg_image_events { background-image: url('contact.png'); }
+.bg_image_register { background-image: url('register.png'); }
+
+/* Overlay for Text Readability */
+[class^="bg_image_"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
+}
+
+/* Loading State */
+.bg-loading { opacity: 0; }
+
+/* Navbar Styles */
+.navbar-dark .navbar-brand,
+.navbar-dark .nav-link {
+  color: white;
+}
+
+.navbar-dark .navbar-brand:hover,
+.navbar-dark .nav-link:hover {
+  color: #ffcc00;
+}
+
+.nav-link-custom {
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  color: white;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.nav-link-custom:hover {
+  color: #ffcc00;
+  text-decoration: none;
+}
+
+/* Responsive adjustments for screens <= 480px */
+@media (max-width: 480px) {
  
+
+  /* Navbar Font Size */
+  .navbar-dark .nav-link,
+  .navbar-dark .navbar-brand {
+    font-size: 1.1rem;
+  }
+
+  /* Nav Link Padding & Font Size */
+  .nav-link-custom {
+    padding: 0.45rem;
+    font-size: 0.95rem;
+    margin-left: 4rem;
+  }
+  
+  .combine{
+    /* border: 1px solid white; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: -2px;
+  }
+
+  /* Footer Styling */
+  .footer {
+    margin-bottom: 3rem;
+    /* height: auto;
+    padding: 1rem; */
+    text-align: center;
+  }
+
+  /* Darker Overlay for Mobile */
+  [class^="bg_image_"]::before {
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  /* Text Alignment & Sizing */
+  .title {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-left: 15px;
+  }
+  .sub {
+    font-size: 1.1rem;
+    margin-top: -10px;
+    text-align: left;
+  }
+.become{
+  text-align: left;
+}
+  /* Social Icons */
+  .socials {
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .insta, .twitter, .linkedin {
+    width: 1.9rem;
+    height: 1.9rem;
+      margin-top: 14px;
+  
+  }
+
+  /* Register Button */
+  .register {
+    margin: auto;
+  }
+
+  /* Arrow Styling */
+  .arrow-down, .arrow-up {
+    font-size: 1.3rem;
+  }
+
+  /* Overlay Opacity for Loading State */
+  .bg-loading {
+    opacity: 0.85;
+  }
+}

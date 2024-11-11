@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import FormHeading from '../../Forms/FormHeading';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
@@ -6,45 +6,114 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function Contact(){
-const[content,setContent]  = useState(<Container><Container style={{width:"50%",position:"absolute",left:"1rem",paddingTop:"1rem"}}><div><FormHeading content="Contact Us" styling={{color:"#858482",textAlign:"center",fontFamily:"Montserrat"}}/>
-<Form>
-  <Row className="mb-3">
-    <Form.Group as={Col} controlId="formGridFName">
-     
-      <Form.Control  size="sm" type="email" placeholder="First Name" style={{margin : "2rem auto 0 auto",width:"140%"}}/>
-    </Form.Group>
+function Contact() {
+  const formStyle = {
+    background: 'rgba(255, 255, 255, 0.1)',
+    backdropFilter: 'blur(5px)',
+    border: '1px solid rgba(255, 255, 255, 0.2)',
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+    padding: '2rem',
+    borderRadius: '8px',
+    maxWidth: '600px',
+    margin: '25px auto',
+  };
 
-    <Form.Group as={Col} controlId="formGridLName">
-     
-      <Form.Control  size="sm" type="password" placeholder="Last Name" style={{margin : "2rem auto 0 7rem",width:"140%"}}/>
-    </Form.Group>
-    <Form.Group as={Col} controlId="empty"></Form.Group>
-  </Row>
+  const inputStyle = {
+    background: 'rgba(255, 255, 255, 0.1)',
+    border: '1px solid rgba(255, 255, 255, 0.2)',
+    color: 'white',
+    padding: '10px',
+    '::placeholder': {
+      color: 'white',
+      opacity: '1' 
+    }
+  };
 
-  <Form.Group className="mb-3" controlId="formGridEmail">
-  <Form.Control  size="sm" placeholder="Email ID" style={{margin : "2rem auto 0 auto"}}/>
-  <Form.Label style={{color:"#858482",fontSize:"1rem",fontFamily:"Aileron",opacity:"50%"}}>Please use a real email address</Form.Label>
-  </Form.Group>
-  
-  <Form.Group className="mb-3" controlId="formGridSubject">
-  <Form.Control  size="sm" placeholder="Subject" style={{margin : "1rem auto"}}/>
-  </Form.Group>
+  return (
+    <Container className="py-4">
+      <Container style={formStyle}>
+        <FormHeading 
+          content="Contact Us" 
+          styling={{
+            color: "white",
+            textAlign: "center",
+            fontFamily: "Montserrat",
+            marginBottom: "2rem"
+          }}
+        />
+        
+        <Form>
+          <Row className="mb-3">
+            <Col>
+              <Form.Group>
+                <Form.Control
+                  size="sm"
+                  type="text"
+                  placeholder="First Name"
+                  style={inputStyle}
+                />
+              </Form.Group>
+            </Col>
+            <Col>
+              <Form.Group>
+                <Form.Control
+                  size="sm"
+                  type="text"
+                  placeholder="Last Name"
+                  style={inputStyle}
+                />
+              </Form.Group>
+            </Col>
+          </Row>
 
-  <Form.Control  size="sm"
-      as="textarea"
-      placeholder="Message"
-      style={{ height: '10rem',margin : "2rem auto", width:"105%"}}
-    />
+          <Form.Group className="mb-3">
+            <Form.Control
+              size="sm"
+              type="email"
+              placeholder="Email ID"
+              style={inputStyle}
+            />
+            <Form.Label className="text-white text-base font-['Aileron'] opacity-50">
+              Please use a real email address
+            </Form.Label>
+          </Form.Group>
 
-<Button 
-    variant="outline-light" 
-    className="sendMessage" 
-    size="lg"
-    style={{fontFamily:"Montserrat",fontSize:"2rem"}}
-    >Send Message</Button>
-</Form>
-</div></Container></Container>);
-return(content);
+          <Form.Group className="mb-3">
+            <Form.Control
+              size="sm"
+              type="text"
+              placeholder="Subject"
+              style={inputStyle}
+            />
+          </Form.Group>
+
+          <Form.Group className="mb-3">
+            <Form.Control
+              size="sm"
+              as="textarea"
+              placeholder="Message"
+              className="h-40"
+              style={inputStyle}
+            />
+          </Form.Group>
+
+          <Row className="mb-3 text-center">
+            <Button
+              variant="outline-light"
+              size="lg"
+              className="font-['Montserrat'] text-lg hover:bg-white hover:text-black transition-all duration-300"
+              style={{
+                width: '100%',
+                marginTop: "1rem"
+              }}
+            >
+              Send Message
+            </Button>
+          </Row>
+        </Form>
+      </Container>
+    </Container>
+  );
 }
+
 export default Contact;

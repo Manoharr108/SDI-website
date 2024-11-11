@@ -4,65 +4,74 @@ import Container from 'react-bootstrap/Container';
 import $ from 'jquery';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
-import {Link} from "react-router-dom";
-
-
+import { Link } from 'react-router-dom';
 
 function PageContent() {
-   function handleClickDown()
-    {$(".combine").slideUp(1000);
-    setTimeout(() => {setContent(<Container className="becomeMember">
-    <KeyboardArrowUpIcon className="arrow-up svg_icons" onClick={handleClickUp} fontSize="large"/>
-    <div className="wrap"><h1 class="title2 title">Become a member.</h1></div><Button 
-    variant="outline-light" 
-    className="register" 
-    size="lg"
-    onClick={handleClickRegister}><Link to='/register'><img src={"img/group1.png"} alt="SDIlogo"></img></Link></Button></Container>)},900);
-    }
+    const [content, setContent] = useState('initial');
 
-    function handleClickRegister(req){
-    
-    }
+    const handleClickDown = () => {
+        $(".combine").slideUp(1000);
+        setTimeout(() => {
+            setContent('becomeMember');
+        }, 900);
+    };
 
-    function handleClickUp(){
+    const handleClickUp = () => {
         $(".becomeMember").slideUp(1000);
-        setTimeout(() => {setContent(<div>
-            <div className="inline">
-            <div className="combine"> 
-            <div className="wrap">
-            <h1 className="title title1">Student Developers Initiative.</h1>
-            </div>
-            <div className="sub">
-            <h2>&lt;We dream tech /&gt;</h2>
-            </div>
+        setTimeout(() => {
+            setContent('initial');
+        }, 900);
+    };
 
-        </div>
-        </div>
-        <ArrowDropDownIcon className="arrow-down svg_icons" onClick={handleClickDown} fontSize="large"/>
-       
-        </div>
-        
-        );},900)
-        
-    }
+    return (
+        <>
+            {content === 'initial' && (
+                <div>
+                    <div className="combine">
+                        <div className="wrap title-container">
+                            <h1 className="title title1">
+                            <span>Student</span>
+                            <span>Developers</span>
+                            <span>Initiative.</span>
+                            </h1>
+                        </div>
+                        <div className="sub">
+                            <h2>&lt;We dream tech /&gt;</h2>
+                        </div>
+                    </div>
+                    <ArrowDropDownIcon 
+                        className="arrow-down svg_icons" 
+                        onClick={handleClickDown} 
+                        fontSize="large" 
+                        role="button" 
+                        aria-label="Expand to become a member section"
+                    />
+                </div>
+            )}
 
-    const [content, setContent] = useState(<div>
-    <div className="inline">
-    <div className="combine"> 
-    <div className="wrap">
-    <h1 className="title title1">Student Developers Initiative.</h1>
-    </div>
-    <div className="sub">
-    <h2>&lt;We dream tech /&gt;</h2>
-    </div>
-
-</div>
-</div>
-<div style={{paddingTop:"rem"}}>
-<ArrowDropDownIcon className="arrow-down svg_icons" onClick={handleClickDown} fontSize="large"/>
-</div>
-</div>)
-     
- return(content);
+            {content === 'becomeMember' && (
+                <Container className="becomeMember">
+                    <KeyboardArrowUpIcon 
+                        className="arrow-up svg_icons" 
+                        onClick={handleClickUp} 
+                        role="button" 
+                        aria-label="Collapse member section"
+                    />
+                    <div className="wrap">
+                        <h1 className="title2 title become">
+                            <span>Become an</span><br />
+                            <span>SDI.</span>
+                        </h1>
+                    </div>
+                    <button className="register">
+                        <Link to='/register'>
+                            <img src="img/group1.png" alt="SDI logo" />
+                        </Link>
+                    </button>
+                </Container>
+            )}
+        </>
+    );
 }
+
 export default PageContent;

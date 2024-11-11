@@ -1,13 +1,13 @@
 .navbar > .container {
     max-width: 100%;
     margin: 0;
-    padding: 0.5rem 2rem 0 0rem;
-  }
-  
-  .navbar {
+    /* padding: 0.5rem 2rem 0 0rem; */
+}
+
+.navbar {
     margin: 0;
     padding: 0.5rem 2rem 0 1rem;
-  }
+}
 /* React navbar styling */
 
 .footer {
@@ -15,7 +15,6 @@
     bottom: 0;
     width: 100%;
     height: 10%;
-    /* Height of the footer */
     background: #6cf;
     margin-right: 5%;
 }
@@ -23,42 +22,44 @@
 
 #date-section {
     margin-left: 2%;
-    
 }
 #footer-date {
     font-size: 250%;
     font-weight: bold;
     font-family: 'Montserrat', sans-serif;
-    color:aliceblue;
+    color: aliceblue;
 }
 #footer-month {
     font-size: 100%;
     font-family: 'Montserrat', sans-serif;
     color: grey;
-    
 }
-/* Footer date-section */
 
-.inline {
-    display: inline-block;
-    margin: 1rem;
-    margin-left: 2%;
-    margin-top: 3%;
-}
-.title {
+.title, .title2 {
     color: white;
     font-size: 6rem;
-    font-family:'Aileron',sans-serif;
-    text-align: left;
-}    
+    font-family: 'Aileron', sans-serif;
+}
+.become{
+    margin-left: -2rem;
+}
 .wrap h2 {
     display: table-cell;
     vertical-align: middle;
 }
+.becomeMember {
+    margin-top: 0rem;
+    padding-left: 0;
+}
+
 .wrap {
-    display: table;
-    height: 6.25rem;
-    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
+    align-items: flex-start;
+    height: 10rem;
+    width: 100%;
     padding: 0.63rem;
 }
 .wrap h1 {
@@ -66,65 +67,65 @@
     vertical-align: middle;
 }
 .sub {
+    margin-top: 12rem;
+    margin-left: 2rem;
     display: block;
     color: darkgray;
     font-family: 'AileronReg', sans-serif;
 }
-.becomeMember{
-    margin-top: 0rem;
-    padding-left: 0 !important;
-    margin-left:2.3rem !important;
+.combine{
+    margin-left: 3rem;
+    /* border: 1px solid white; */
 }
-.title2{
-    font-size:6rem;
+.becomeMember {
+    margin-top: 0rem;
+    padding-left: 0;
+}
+.title-container span {
+    display: block; /* Each word will be displayed on a new line */
+    text-align: left; /* Center-aligns the words */
 }
 
 /* Text content */
 
-.insta,.twitter,.linkedin{
+.insta, .twitter, .linkedin {
     width: 3.125rem;
     height: 3.125rem;
     background-size: 100%;
-    background-position:  center;
+    background-position: center;
 }
-.insta{
-
+.insta {
     background-image: url('img/static.gif');
-    float:left;
-
+    float: left;
 }
 .insta:hover {
     background-image: url('img/insta.gif');
 }
-.twitter{
-
-    background-image: url('img/static2.gif');
-    float:right;
-
+.twitter {
+    background-image: url('img/X_logo.jpg');
+    float: right;
 }
-.twitter:hover{
-    background-image: url('img/twitter.gif');
+.twitter:hover {
+    background-image: url('img/xgigy.gif');
 }
-.linkedin{
-
-  background-image: url('img/static3.gif');
-  display: inline-block;
-  margin:0 auto;
-
+.linkedin {
+    background-image: url('img/static3.gif');
+    display: inline-block;
+    margin: 0 auto;
 }
-.linkedin:hover{
-  background-image: url('img/linkedin.gif');
+.linkedin:hover {
+    background-image: url('img/linkedin.gif');
 }
-.socials{
+.socials {
     width: 17%;
     text-align: center;
-  }
-  /* Socials section */
+}
+/* Socials section */
 
 .nav-link {
     color: aliceblue !important;
     font-size: 1.5rem;
-    padding-right:3rem !important;
+    padding-right: 3rem !important;
     font-family: 'Segoe', sans-serif;
 }
 .navbar-brand {
@@ -136,45 +137,92 @@
 }
 /* Navbar related */
 
-.arrow-down{
-    margin:1rem auto !important;
-    display:block !important;
-    height:3rem !important;
-    width:3rem !important;
-    color:aliceblue;
+.arrow-down {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    color: aliceblue;
+    font-size: 2.5rem !important;
 }
-.arrow-up{
-    margin:0 auto !important;
-    padding:0 auto !important;
-    display:block !important;
-    height:3rem !important;
-    width:3rem !important;
-    color:aliceblue;
+.arrow-up {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    color: aliceblue;
+    font-size: 2.5rem !important;
 }
 /* arrow-down arrow-up button related(both have same CSS) */
 
-.register{
-    margin:9rem auto 2rem auto !important;
-    display:block !important;
-    background: transparent linear-gradient(180deg, #8D8C8C 0%, #000000 100%) 0% 0% no-repeat padding-box;
-opacity: 85%;
-   border-radius: 1px;
+.register {
+    margin: 6rem auto 2rem auto !important;
+    width: 50%;
+    display: block !important;
+    background: linear-gradient(180deg, #8D8C8C 0%, #000000 100%);
+    border: 1px solid #333;
+    outline: none;
+    opacity: 0.9; 
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 1rem 2rem; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.8s ease, box-shadow 0.8s ease;
 }
-/*become member related CSS */
 
-.sendMessage{
-    width:46.4rem;
-    height:5rem;
+.register:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    opacity: 1;
+    background: linear-gradient(180deg, #999999 0%, #333333 100%);
 }
-.mb-3{
+
+.register:active {
+    transform: scale(1); /* No scale on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.sendMessage {
+    width: 46.4rem;
+    height: 5rem;
+}
+.mb-3 {
     font-family: Noto Sans, sans-serif;
-  }
-  /* Contact us page related */
+}
 
-  .svg_icons{
+.svg_icons {
     transform: scale(1.8);
-  }
-.registerformbutton{
-    width:39.6rem !important;
-    height:5rem !important;
+}
+.registerformbutton {
+    width: 39.6rem !important;
+    height: 5rem !important;
+}
+
+@media (max-width: 480px) {
+    .register {
+        margin: 4rem auto 2rem auto !important;
+        width: 90%;
+        padding: 0.5rem;
+    }
+
+    .title, .title2 {
+        font-size: 2rem; 
+        text-align: center;
+        margin-top: 2rem; 
+    }
+
+    .wrap {
+        height: auto; /* Allow height to adjust automatically */
+        padding: 1rem; /* Reduce padding on smaller screens */
+    }
+
+    .register img {
+        width: 100%;
+        height: auto;
+    }
+
+    .arrow-up {
+        font-size: 1.2rem;
+    }
+    .socials{
+        margin-top: 12px;
+    }
 }
